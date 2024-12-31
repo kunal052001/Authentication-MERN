@@ -1,16 +1,30 @@
 const express = require('express');
-const app = express();
 const cookieParser = require('cookie-parser');
 const path = require('path');
+const connectDB = require('./config/db');
+const authRoutes = require('./routes/authRoutes');
 
-app.set("view engine", "ejs");
+const app = express();
+const PORT = 3000;
+
+// Connect to MongoDB
+connectDB();
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
+// Routes
+app.use('/auth', authRoutes);
+
+// Home Route
 app.get('/', (req, res) => {
-    res.send('Welcome');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(3000);
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});

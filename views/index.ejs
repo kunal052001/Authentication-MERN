@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="w-full h-screen flex flex-col items-center justify-center bg-zinc-900 text-white">
+        <h1 class="text-4xl font-bold mb-8">Authentication System</h1>
+        <form method="post" action="/login" class="space-y-4">
+            <input type="email" name="email" placeholder="Email" class="px-4 py-2 w-80 border rounded-md" required>
+            <input type="password" name="password" placeholder="Password" class="px-4 py-2 w-80 border rounded-md" required>
+            <button type="submit" class="px-6 py-2 bg-blue-500 rounded-md text-white">Login</button>
+        </form>
+        <% if (message) { %>
+            <p class="mt-4 text-red-500"><%= message %></p>
+        <% } %>
+    </div>
+</body>
+</html>
