@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 const router = express.Router();
 
-// Register User
+
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
     try {
@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Login User
+
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Serve Pages
+
 router.get('/login', (req, res) => res.sendFile(path.join(__dirname, '../public/login.html')));
 router.get('/register', (req, res) => res.sendFile(path.join(__dirname, '../public/register.html')));
 router.get('/dashboard', (req, res) => {
@@ -53,7 +53,7 @@ router.get('/dashboard', (req, res) => {
     }
 });
 
-// Logout User
+
 router.get('/logout', (req, res) => {
     res.cookie('token', '', { expires: new Date(0) });
     res.redirect('/auth/login');
