@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 
-export default function Display() {
-    const [disp,setDisp]=useState([])
-    useEffect(()=>{
-        axios.get("http://localhost:5000")
-        .then((res)=>{console.log(res),setDisp(res.data)})
-        .catch((err)=>console.log(err))
-    },[])
-    function handledelete(id){
-        axios.delete(`http://localhost:5000/delete/${id}`)
-        .then((res)=>{console.log(res);
-            setDisp(disp.filter(item => item._id !== id));})
-        .catch((err)=>{console.log(err)})
-       
-        
-    }
+
+export default function Display({tasks,deletetodo}) {
+   
   return (
-    <div><div>KUNAL</div>{disp.map((val)=>(
-        <li key={val._id}>{val.task}<span><button onClick={()=>handledelete(val._id)}>delete</button></span></li>
-    ))}</div>
+    <div><div>List</div><ul>{tasks.map((val) => (
+        <li key={val._id}>
+          {val.task}{" "}
+          <button onClick={() => deletetodo(val._id)}>Delete</button>
+        </li>
+      ))}</ul></div>
   )
 }

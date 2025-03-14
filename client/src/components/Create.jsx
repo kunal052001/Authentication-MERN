@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
-function Create() {
+
+function Create({createtodo}) {
     const [state, setState] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
-        axios.post("http://localhost:5000/", { task:state })
-            .then((result) => {
-                console.log("data sent", result);
-            })
-            .catch((err) => {
-                console.log("error", err);
-            });
-        setState("");
+       createtodo(state)
+       setState("");
     }
 
     return (
-        <div>
+        <div> <h1 >hallo i am create</h1>
             <form onSubmit={handleSubmit}>
                 <input 
                     type='text' 
