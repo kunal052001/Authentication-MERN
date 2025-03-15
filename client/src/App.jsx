@@ -33,14 +33,16 @@ function App() {
     .catch((err)=>{console.log(err)})
    
   }
-  // function updatetodo(){
-
-  // }
+  function updatetodo(id, updatedTask) {
+    axios.put(`http://localhost:5000/update/${id}`, { task: updatedTask })
+        .then(() => fetchtodo())
+        .catch((err) => console.log(err));
+}
   
   return (
     <>
       <Create createtodo={createtodo}/>
-      <Display tasks={task} deletetodo={deletetodo}/>
+      <Display tasks={task} deletetodo={deletetodo} updatetodo={updatetodo}/>
     </>
   )
 }

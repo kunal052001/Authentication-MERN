@@ -17,6 +17,7 @@ app.post("/",(req,res)=>{
     .catch((err)=>res.json(err))
 
 })
+
 app.get("/",(req,res)=>{
     TODO.find()
     .then((resa)=>res.send(resa))
@@ -27,6 +28,11 @@ app.delete("/delete/:id",(req,res)=>{
     .then((reso)=>res.json(res))
     .catch((err)=>res.json(err))
 })
+app.put("/update/:id", (req, res) => {
+    TODO.findByIdAndUpdate(req.params.id, { task: req.body.task }, { new: true })
+        .then((updatedTask) => res.json(updatedTask))
+        .catch((err) => res.json(err));
+});
 const PORT=5000;
 app.listen(PORT,()=>{
     console.log(`server running on port localhost:${PORT}`)
