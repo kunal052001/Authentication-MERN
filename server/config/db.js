@@ -1,14 +1,12 @@
-const mongoose=require("mongoose")
-const DBconnect=async ()=>{
-    try{
-        await mongoose.connect("mongodb+srv://kunal:kunal@cluster-auth.yszuj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-auth")
+const mongoose = require('mongoose');
 
-        console.log("database connected")
-
+const DBconnect = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log("MongoDB connected");
+    } catch (err) {
+        console.error("Database connection error:", err);
     }
-    catch(err){
-        console.log(err)
-    }
-}
+};
 
-module.exports=DBconnect;
+module.exports = DBconnect;
