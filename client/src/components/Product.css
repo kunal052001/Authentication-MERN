@@ -1,0 +1,63 @@
+/* Main container for the product form */
+.product-container {
+    margin-left: 280px; /* Aligning with sidebar */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 76vw;
+    background-color: #12121f; /* Dark background similar to sidebar */
+  }
+  
+  /* Form styling */
+  .product-form {
+    background: #1e1e2f; /* Dark form background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    
+    color: white; /* Text color */
+  }
+  
+  /* Label styling */
+  .product-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #f8f8f8; /* Light color for better readability */
+  }
+  
+  /* Input fields */
+  .product-form input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #26263b; /* Dark input fields */
+    color: white;
+  }
+  
+  /* Placeholder styling */
+  .product-form input::placeholder {
+    color: #aaa;
+  }
+  
+  /* Submit button */
+  .product-form button {
+    width: 80%;
+    padding: 10px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .product-form button:hover {
+    background: #388e3c;
+  }
+  

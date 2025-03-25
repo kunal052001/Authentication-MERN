@@ -9,11 +9,11 @@ function Login() {
 
     function handleLogin(e) {
         e.preventDefault();
-
+        
         axios.post("http://localhost:5000/login", { email, password })
         .then((res) => {
             console.log("Login successful", res.data);
-            navigate("/"); // Redirect to home page after successful login
+            navigate("/"); 
         })
         .catch((err) => {
             console.log("Login error", err.response?.data || err.message);

@@ -1,0 +1,104 @@
+/* Store Page */
+.store-container {
+    margin-left: 280px; /* Aligning with sidebar */
+    padding: 20px;
+    background-color: #12121f; /* Dark background */
+    color: #f8f8f8;
+    min-height: 100vh;
+}
+
+/* Page Heading */
+.store-container h1 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Product List */
+.store-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Product Card */
+.card-list {
+    background: #1e1e2f;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Product Name */
+.card-list div {
+    font-size: 18px;
+}
+
+/* Buttons */
+button {
+    background: #4caf50;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #388e3c;
+}
+
+/* Delete Button */
+button.delete {
+    background: #e63946;
+}
+
+button.delete:hover {
+    background: #c62828;
+}
+
+/* Edit Input Fields */
+.store-container input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background: #26263b;
+    color: white;
+}
+
+.store-container input::placeholder {
+    color: #aaa;
+}
+
+/* Action Buttons */
+.store-container button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Buy & Sell Stock */
+.store-container .buy-stock {
+    background: #0288d1;
+}
+
+.store-container .buy-stock:hover {
+    background: #0277bd;
+}
+
+.store-container .sell-stock {
+    background: #f57c00;
+}
+
+.store-container .sell-stock:hover {
+    background: #ef6c00;
+}
