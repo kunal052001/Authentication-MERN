@@ -1,10 +1,14 @@
 import React from 'react'
 
-function Store() {
+
+function Store({product}) {
   return (
     <div>
-    SOTOR
-    hay this is home page this is INVENTRY MANGGEMENT SYSTEM
+      displayproduct.
+             <ul> {product.map(val,index)=>(
+                <li key={index}>{val} </li>
+              )}
+              </ul>
 </div>
   )
 }

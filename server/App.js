@@ -24,8 +24,10 @@ app.post("/createproduct",(req,res)=>{
        .then((val)=>res.send(val))
        .catch((err)=>res.send(err))
 })
-app.get("/getproduct",(req,res)=>{
-    proguct.
+app.get("/displayproduct",(req,res)=>{
+    product.find()
+    .then((val)=>res.json(val))
+    .catch((err)=>res.send(err))
 })
 
 const PORT = process.env.PORT || 5000;
