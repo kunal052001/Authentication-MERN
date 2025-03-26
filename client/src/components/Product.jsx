@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import "./Product.css"; 
 
-function Product({ addTodo }) {
+
+function Product({ Addproduct }) {
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!product.trim()) return;
-    addTodo({ product, quantity, price });
+    Addproduct(product,price,quantity)
     setProduct("");
     setQuantity("");
     setPrice("");
@@ -29,7 +29,7 @@ function Product({ addTodo }) {
 
         <label>Product Quantity</label>
         <input
-          type="text"
+          type="number"
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
           placeholder="Enter quantity"
@@ -37,7 +37,7 @@ function Product({ addTodo }) {
 
         <label>Product Price</label>
         <input
-          type="text"
+          type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder="Enter price"

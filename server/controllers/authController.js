@@ -44,3 +44,9 @@ exports.login = async (req, res) => {
 exports.logout = async (req, res) => {
   res.clearCookie("token").json({ msg: "Logout successful" });
 };
+
+
+
+exports.createproduct=(req,res)=>{
+  
+}
