@@ -1,138 +1,187 @@
-/* Store Container */
-.store-container {
-    padding: 20px;
-    margin-left: 280px; /* Adjust to fit sidebar width */
-    margin-right: 0;
-    /* width: calc(100% - 250px); */
-    width: 153% ;
-  
-    background-color: #121212; /* Dark theme background */
-    min-height: 100vh;
-    color: white;
-    font-family: "Poppins", sans-serif;
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background for the entire page */
+    color: #e0e0e0; /* Light text color */
+    margin: 0;
+    padding: 0;
   }
   
-  /* Store Title */
-  .store-container h1 {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
+  /* Store container styles */
+  .store-container {
+    margin-left: 250px; /* Account for sidebar */
+    padding: 20px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #ffffff; /* White text for the heading */
     margin-bottom: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
+    text-align: center;
   }
   
-  /* Product Grid */
+  /* Grid for product display */
   .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center cards horizontally */
     gap: 20px;
-    padding: 10px;
   }
   
-  /* Product Card */
+  /* Styling for each product card */
   .product-card {
-    background: #1e1e2f;
-    border-radius: 20px;
+    background-color: #1e1e2f; /* Dark background for cards */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px; /* Limit the width of product card */
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
     transition: transform 0.3s ease-in-out;
+    color: #e0e0e0; /* Light font color inside the card */
   }
   
   .product-card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
   }
   
-  /* Product Info */
-  .product-info h3 {
-    margin: 0;
-    font-size: 22px;
-    font-weight: 500;
-    
-    color: #e3e3e3;
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #3e3e4d; /* Darker border to match theme */
+    padding-bottom: 15px;
   }
   
-  .product-info p {
-    font-size: 16px;
-    color: #b3b3b3;
-    margin: 5px 0;
+  .product-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #e0e0e0; /* Light color for the product name */
   }
   
-  /* Product Actions */
-  .product-actions {
+  .product-actions button {
+    background: transparent;
+    border: none;
+    color: #00bcd4; /* Light cyan for edit and delete buttons */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .product-actions button:hover {
+    color: #ff4081; /* Pinkish hover effect */
+  }
+  
+  /* Product details section (price, quantity) */
+  .product-details {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .product-price,
+  .product-quantity {
+    font-size: 1.1rem;
+    color: #b0bec5; /* Lighter gray text for price and quantity */
+  }
+  
+  /* Stock controls section */
+  .stock-controls {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 20px;
+    align-items: center;
   }
   
-  button {
-    padding: 10px 14px;
+  .stock-input {
+    width: 80px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #3e3e4d; /* Matching the card border color */
+    background-color: #2a2a3d; /* Darker background for input */
+    color: #ffffff; /* White font color for input */
+    font-size: 1rem;
+  }
+  
+  .stock-actions button {
+    padding: 10px;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background 0.3s;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
   }
   
-  /* Button Colors */
-  .update-btn {
-    background-color: #4CAF50;
+  .buy-btn {
+    background-color: #4caf50; /* Green for buy button */
     color: white;
   }
   
-  .delete-btn {
-    background-color: #e63946;
+  .buy-btn:hover {
+    background-color: #388e3c; /* Darker green on hover */
+  }
+  
+  .sell-btn {
+    background-color: #f44336; /* Red for sell button */
     color: white;
+  }
+  
+  .sell-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+  }
+  
+  /* Edit product form */
+  .edit-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #3e3e4d;
+    background-color: #2a2a3d;
+    color: #e0e0e0;
+    font-size: 1rem;
+  }
+  
+  .edit-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .save-btn,
+  .cancel-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
   }
   
   .save-btn {
-    background-color: #2196F3;
+    background-color: #00bcd4;
     color: white;
-  }
-  
-  .cancel-btn {
-    background-color: #ff9800;
-    color: white;
-  }
-  
-  .update-btn:hover {
-    background-color: #45a049;
-  }
-  
-  .delete-btn:hover {
-    background-color: #c62828;
   }
   
   .save-btn:hover {
-    background-color: #1976d2;
+    background-color: #ff4081; /* Pinkish hover effect */
+  }
+  
+  .cancel-btn {
+    background-color: #607d8b;
+    color: white;
   }
   
   .cancel-btn:hover {
-    background-color: #e68a00;
+    background-color: #455a64;
   }
   
-  /* Edit Form */
-  .edit-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .edit-form input {
-    padding: 12px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background-color: #2e2e3f;
-    color: white;
-    font-size: 16px;
-  }
-  
-  /* No Products Message */
+  /* No products message */
   .no-products {
     text-align: center;
-    font-size: 18px;
-    color: #ccc;
-    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #b0bec5; /* Light gray color for no products message */
   }
   
