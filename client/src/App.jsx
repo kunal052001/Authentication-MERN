@@ -32,7 +32,7 @@ function App() {
             <Sidebar />
             <Routes>
                 <Route path='/product' element={<Product Addproduct={Addproduct} />} />
-                <Route path="/" element={<Home />} />
+                <Route path="/Home" element={<Home />} />
                 <Route path='/store' element={<Store products={products} />} />
             </Routes>
         </Router>

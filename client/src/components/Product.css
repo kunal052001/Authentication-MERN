@@ -1,6 +1,6 @@
 /* Main container for the product form */
 .product-container {
-    margin-left: 280px; /* Aligning with sidebar */
+    margin-left: -10px; /* Aligning with sidebar */
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -48,7 +48,7 @@
   .product-form button {
     width: 80%;
     padding: 10px;
-    background: #4caf50;
+    background: #00b099;
     color: white;
     border: none;
     border-radius: 5px;
@@ -58,6 +58,6 @@
   }
   
   .product-form button:hover {
-    background: #388e3c;
+    background: #f2ff01;
   }
   

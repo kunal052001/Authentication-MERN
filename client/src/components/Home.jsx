@@ -1,41 +1,54 @@
-import React from 'react';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Home.css"; // Ensure you have a Home.css file for styling
 
-function Home() {
-   
+const Home = () => {
+  const navigate = useNavigate();
 
-    return (
-        <div>
-            Home
-            hay this is home page this is INVENTRY MANGGEMENT SYSTEM
-        </div>
-    );
-}
+  const handleAddProduct = () => navigate("/product");
+  const handleViewProducts = () => navigate("/store");
+
+  return (
+    <div className="home-container">
+      <h1>Welcome to Inventory Management System</h1>
+
+      <button className="btn" onClick={handleAddProduct}>
+        ADD Product
+      </button>
+
+      <button className="btn" onClick={handleViewProducts}>
+        View Products
+      </button>
+
+      <ul className="features-list">
+        <li>- Add product</li>
+        <li>- Remove product</li>
+        <li>- Update product</li>
+        <li>- Update Store</li>
+        <li>- Stock Update</li>
+      </ul>
+
+     
+
+      <p className="benefits-text">
+        <strong>Benefits of Inventory Management:</strong>
+        <br />
+        - Improved Efficiency: Streamlines inventory handling processes.
+        <br />
+        - Cost Savings: Avoids overstocking or understocking.
+        <br />
+        - Accurate Forecasting: Provides data-driven insights.
+        <br />
+        - Enhanced Customer Satisfaction: Ensures product availability.
+        <br />
+        - Reduced Wastage: Tracks inventory levels.
+        <br />
+        - Better Cash Flow Management: Maintains optimal stock.
+        <br />
+        - Data Analytics & Reporting: Offers insights into sales trends.
+      </p>
+    </div>
+  );
+};
 
 export default Home;
-
-
-// import React from 'react';
-// import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
-
-// function Home() {
-//     const navigate = useNavigate();
-
-//     function handleLogout() {
-//         axios.post("http://localhost:5000/logout")
-//             .then((res) => {
-//                 console.log("You are logged out", res);
-//                 navigate("/login"); // Call navigate as a function
-//             })
-//             .catch((err) => console.error("Error", err));
-//     }
-
-//     return (
-//         <div>
-//             Home
-//             <button onClick={handleLogout}>Logout</button>
-//         </div>
-//     );
-// }
-
-// export default Home;

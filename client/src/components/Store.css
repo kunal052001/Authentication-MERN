@@ -3,13 +3,13 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #121212; /* Dark background for the entire page */
     color: #e0e0e0; /* Light text color */
-    margin: 0;
+    margin-left: 290px;
     padding: 0;
   }
   
   /* Store container styles */
   .store-container {
-    margin-left: 250px; /* Account for sidebar */
+    /* Account for sidebar */
     padding: 20px;
     max-width: 100%;
     display: flex;
@@ -36,8 +36,9 @@ body {
     background-color: #1e1e2f; /* Dark background for cards */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 500px; /* Limit the width of product card */
+    height: 250px;
+    width: 60%;
+    max-width: 700px; /* Limit the width of product card */
     padding: 20px;
     margin: 10px;
     transition: transform 0.3s ease-in-out;
@@ -72,7 +73,7 @@ body {
   }
   
   .product-actions button:hover {
-    color: #ff4081; /* Pinkish hover effect */
+    color: #d43f71; /* Pinkish hover effect */
   }
   
   /* Product details section (price, quantity) */
@@ -85,8 +86,10 @@ body {
   
   .product-price,
   .product-quantity {
-    font-size: 1.1rem;
-    color: #b0bec5; /* Lighter gray text for price and quantity */
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 1.5rem;
+    color: #ffffff; /* Lighter gray text for price and quantity */
   }
   
   /* Stock controls section */
@@ -117,21 +120,25 @@ body {
   }
   
   .buy-btn {
-    background-color: #4caf50; /* Green for buy button */
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #0066ff; /* Green for buy button */
     color: white;
   }
   
   .buy-btn:hover {
-    background-color: #388e3c; /* Darker green on hover */
+    background-color: #d8ca07; /* Darker green on hover */
   }
   
   .sell-btn {
-    background-color: #f44336; /* Red for sell button */
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color:  #0066ff; /* Red for sell button */
     color: white;
   }
   
   .sell-btn:hover {
-    background-color: #d32f2f; /* Darker red on hover */
+    background-color: #f7c709; /* Darker red on hover */
   }
   
   /* Edit product form */
@@ -180,8 +187,9 @@ body {
   
   /* No products message */
   .no-products {
+    
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #b0bec5; /* Light gray color for no products message */
   }
   

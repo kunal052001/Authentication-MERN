@@ -21,7 +21,7 @@ const Sidebar = () => {
          <Link to="/product" className="menu-item">Add Item</Link>
         </li>
         <li>
-          <Link to="/" className="menu-item">Home</Link>
+          <Link to="/Home" className="menu-item">Home</Link>
         </li>
         <li>
           <Link to="/store" className="menu-item">Store</Link>
