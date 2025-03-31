@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const authMiddleware = require("../middleware/authMiddleware");
 const {
     createProduct,
     getProducts,
@@ -9,7 +10,9 @@ const {
     sellProduct
 } = require("../controllers/productController");
 
-// Maintaining the exact endpoints your frontend uses
+// Protected routes - require authentication
+router.use(authMiddleware);
+
 router.post("/createproduct", createProduct);
 router.get("/displayproduct", getProducts);
 router.put("/updateproduct/:id", updateProduct);

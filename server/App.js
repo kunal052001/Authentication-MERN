@@ -2,86 +2,34 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const DBconnect = require("./config/db");
-const Product = require("./models/Product");
+const DBconnect = require('./config/db');
+const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
 
+// Load environment variables
 dotenv.config();
-DBconnect();
 
+// Initialize Express app
 const app = express();
 
-app.use(express.json());
+// Connect to MongoDB
+DBconnect();
+
+// Middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
 
-// Product routes
-app.post("/createproduct", (req, res) => {
-    const { name, price, quantity } = req.body;
-    Product.create({ name, price, quantity })
-        .then((val) => res.send(val))
-        .catch((err) => res.send(err));
-});
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
-app.get("/displayproduct", (req, res) => {
-    Product.find()
-        .then((val) => res.json(val))
-        .catch((err) => res.send(err));
-});
-
-app.put("/updateproduct/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { new: true });
-        res.json(updatedProduct);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-app.delete("/deleteproduct/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        await Product.findByIdAndDelete(id);
-        res.json({ message: "Product deleted successfully" });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Stock management routes
-app.put("/buy/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { quantity } = req.body;
-        const product = await Product.findById(id);
-        product.quantity += Number(quantity);
-        await product.save();
-        res.json(product);
-    } catch (error) {
-        res.status(500).json({ message: "Error updating stock" });
-    }
-});
-
-app.put("/sell/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { quantity } = req.body;
-        const product = await Product.findById(id);
-        
-        if (product.quantity < quantity) {
-            return res.status(400).json({ message: "Not enough stock available" });
-        }
-        
-        product.quantity -= Number(quantity);
-        await product.save();
-        res.json(product);
-    } catch (error) {
-        res.status(500).json({ message: "Error updating stock" });
-    }
-});
-
+// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

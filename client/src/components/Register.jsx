@@ -1,39 +1,68 @@
-import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
 function Register() {
-  const navigate = useNavigate();
-  const [state,setState]=useState({name:"",
-    email:"",
-    password:""})
+    const navigate = useNavigate();
+    const { registerUser } = useContext(AuthContext);
+    const [state, setState] = useState({ name: "", email: "", password: "" });
+    const [error, setError] = useState("");
 
-  function handlechange(e){
-       const {name,value}=e.target;
-       setState({...state,[name]:value})
-  }
-  function handleregister(e){
-      e.preventDefault()
-     const  {name,email,password}=state;
-     axios.post("http://localhost:5000/Register",{name:name,email:email,password:password})
-      .then((result)=>console.log("user registerd succefully",result))
-      .catch((err)=>console.error("please try again",err))
-      setState({name:"",email:"",password:""})
-      navigate("/login")
-  }
-  return (
-    
-    <div>
-      <h1>Please enter user Details</h1>
-      <form onSubmit={handleregister} >
-        <label>Name</label><input name='name' value={state.name} onChange={handlechange} type='text'></input>
-        <label>Email</label><input name='email' value={state.email} onChange={handlechange} type='text'></input>
-        <label>Password</label><input name='password' value={state.password} onChange={handlechange} type='password'></input>
-        <button type='submit'>create user</button>
-      </form>
-    </div>
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setState({ ...state, [name]: value });
+    }
 
-  )
+    async function handleRegister(e) {
+        e.preventDefault();
+        setError("");
+        
+        const result = await registerUser(state.name, state.email, state.password);
+        if (result.success) {
+            navigate("/login");
+        } else {
+            setError(result.message);
+        }
+
+        setState({ name: "", email: "", password: "" });
+    }
+
+    return (
+        <div className="auth-container">
+            <h2>Register</h2>
+            {error && <div className="error-message">{error}</div>}
+            <form onSubmit={handleRegister} className="auth-form">
+                <label>Name</label>
+                <input 
+                    name='name' 
+                    value={state.name} 
+                    onChange={handleChange} 
+                    type='text' 
+                    required
+                />
+                <label>Email</label>
+                <input 
+                    name='email' 
+                    value={state.email} 
+                    onChange={handleChange} 
+                    type='email' 
+                    required
+                />
+                <label>Password</label>
+                <input 
+                    name='password' 
+                    value={state.password} 
+                    onChange={handleChange} 
+                    type='password' 
+                    required
+                />
+                <button type='submit'>Create Account</button>
+                <button type="button" onClick={() => navigate("/login")}>
+                    Already have an account? Login
+                </button>
+            </form>
+        </div>
+    );
 }
 
-export default Register
+export default Register;
