@@ -1,12 +1,13 @@
 /* Main container for the product form */
 .product-container {
-    margin-left: -10px; /* Aligning with sidebar */
+    /* Aligning with sidebar */
+  
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 76vw;
+    width: 86vw;
     background-color: #12121f; /* Dark background similar to sidebar */
   }
   

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import './Store.css';
-import AuthContext from '../context/AuthContext';
+// import AuthContext from '../context/AuthContext';
 
 function Store({ products: initialProducts }) {
     const [products, setProducts] = useState(initialProducts || []);
@@ -16,7 +16,7 @@ function Store({ products: initialProducts }) {
         type: null,
         amount: 0
     });
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
 
     useEffect(() => {
         setProducts(initialProducts || []);
@@ -204,7 +204,7 @@ function Store({ products: initialProducts }) {
                                         </div>
                                     </div>
                                     <div className="product-details">
-                                        <p className="product-price">Price: ${product.price.toFixed(2)}</p>
+                                        <p className="product-price">Price: {product.price.toFixed(2)}</p>
                                         <p className="product-quantity">Quantity: {product.quantity}</p>
                                     </div>
                                     <div className="stock-controls">

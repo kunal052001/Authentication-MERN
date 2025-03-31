@@ -1,62 +1,86 @@
-/* Login.css */
-.container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #252525;
+  color: #ffffff;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+button[type="button"] {
+  background-color: transparent;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+button[type="button"]:hover {
+  color: #007bff;
+}
+
+.error-message {
+  color: #ff4d4d;
+  background-color: #330000;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 500px) {
+  .auth-container {
+      width: 90%;
+      padding: 15px;
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
+
+  input, button {
+      font-size: 14px;
+      padding: 8px;
   }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  label {
-    margin: 10px 0 5px;
-    color: #555;
-  }
-  
-  input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  
-  input:focus {
-    outline: none;
-    border-color: #28a745;
-    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
-  }
-  
-  button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  button:hover {
-    background-color: #218838;
-  }
-  
-  button:last-of-type {
-    background-color: #007bff;
-  }
-  
-  button:last-of-type:hover {
-    background-color: #0056b3;
-  }
+}

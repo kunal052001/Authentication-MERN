@@ -11,7 +11,7 @@ body {
   .store-container {
     /* Account for sidebar */
     padding: 20px;
-    max-width: 100%;
+    width: 86vw;
     display: flex;
     flex-direction: column;
   }
@@ -39,7 +39,7 @@ body {
     height: 250px;
     width: 60%;
     max-width: 700px; /* Limit the width of product card */
-    padding: 20px;
+    padding: 40px;
     margin: 10px;
     transition: transform 0.3s ease-in-out;
     color: #e0e0e0; /* Light font color inside the card */
@@ -86,8 +86,7 @@ body {
   
   .product-price,
   .product-quantity {
-    margin-left: 50px;
-    margin-right: 50px;
+   margin: 20px;
     font-size: 1.5rem;
     color: #ffffff; /* Lighter gray text for price and quantity */
   }

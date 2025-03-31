@@ -12,7 +12,7 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <h1>Welcome {user?.name} to Inventory Management System</h1>
+            <h2>Welcome {user?.name} to Inventory Management System</h2>
 
             <button className="btn" onClick={handleAddProduct}>
                 ADD Product

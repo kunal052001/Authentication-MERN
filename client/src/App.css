@@ -1,20 +1,14 @@
-.app-container {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
   display: flex;
-}
-
-.sidebar {
-  width: 250px;
-  height: 100vh;
-  background-color: #1e1e2f;
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 20px;
-}
-
-.content {
-  margin-left: 250px; /* Ensure content does not overlap sidebar */
-  width: calc(100% - 250px);
-  padding: 20px;
-  color: white;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #121212; /* Adjust as needed */
 }
